@@ -44,11 +44,17 @@ async def donner(ctx):
     return
 
 
+@client.command()
 async def score(ctx):
-    place = 0
-    for scoreline in files.get_score():
-        place += 1
-        await ctx.send(f'#{place} - {scoreline[0]} - {scoreline[1]} <:or:645726669977681920>')
+    user = ctx.message.author.name
+    if user == 'SlyDower':
+        await ctx.send('T\'as pas le droit <3')
+
+    else:
+        place = 0
+        for scoreline in files.get_score():
+            place += 1
+            await ctx.send(f'#{place} - {scoreline[0]} - {scoreline[1]} <:or:645726669977681920>')
     return
 
 
