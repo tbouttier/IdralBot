@@ -26,8 +26,7 @@ async def donner(ctx):
 
     if channel_id == 645731571055198259 or user == 'SlyDower':
         files.write_gold(user)
-        await ctx.send(f'{user} a donné 1 <:or:645726669977681920> !')
-        await ctx.send(f'Il/Elle a donné  {files.get_user_gold(user)} <:or:645726669977681920> en tout.')
+        await ctx.send(f'{user} a donné 1 <:or:645726669977681920> !\nTotal de ses dons : {files.get_user_gold(user)} <:or:645726669977681920>')
 
         new_name = f'Or récolté : {files.total_gold()}/250'
         await channel.edit(topic=new_name)
