@@ -57,13 +57,14 @@ async def donner(ctx):
 async def score(ctx):
     user = ctx.message.author.name
     if user == 'SlyDower':
-        await ctx.send('T\'as pas le droit <3')
-
-    else:
         place = 0
         for scoreline in files.get_score():
             place += 1
             await ctx.send(f'#{place} - {scoreline[0]} - {scoreline[1]} <:or:645726669977681920>')
+
+    else:
+        await ctx.send('T\'as pas le droit <3')
+
     return
 
 
