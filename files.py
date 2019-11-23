@@ -21,7 +21,7 @@ def user_exist(username):
     return False
 
 
-def write_gold(username):
+def write_gold(username, amount):
     index = -1
     gold_table = read_gold()
 
@@ -30,14 +30,14 @@ def write_gold(username):
 
         while gold_table[0][index] != username:
             index += 1
-        gold_table[1][index] += 1
+        gold_table[1][index] += amount
 
         for line in range(len(gold_table[0])):
             gold_file.write(f'{gold_table[0][line]};{gold_table[1][line]}\n')
 
     else:
         gold_file = open('gold.csv', "a")
-        gold_file.write(f'{username};1\n')
+        gold_file.write(f'{username};{amount}\n')
         gold_file.close()
     return
 

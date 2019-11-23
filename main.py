@@ -19,13 +19,23 @@ async def on_ready():
 
 
 @client.command()
+async def ajout(ctx, gold):
+    user = ctx.message.author.name
+    if user == 'Ofghanirre':
+        user = ctx.message.author.name
+        files.write_gold(user, gold)
+    else :
+        ctx.send(f'Vous n\'avez pas l\'autorisation de faire ça')
+
+
+@client.command()
 async def donner(ctx):
     user = ctx.message.author.name
     channel_id = ctx.message.channel.id
     channel = ctx.message.channel
 
     if channel_id == 645731571055198259 or user == 'SlyDower':
-        files.write_gold(user)
+        files.write_gold(user, 1)
         await ctx.send(f'{user} a donné 1 <:or:645726669977681920> !\nTotal de ses dons : {files.get_user_gold(user)} <:or:645726669977681920>')
 
         new_name = f'Or récolté : {files.total_gold()}/250'
